@@ -22,22 +22,25 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Dashboard from './pages/Dashboard';
+import About from './pages/About';
+import Knowledge from './pages/Knowledge';
+import Check from './pages/Check';
 
 const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonSplitPane contentId="main">
+        {/* <IonSplitPane contentId="main"> */}
           <Menu />
           <IonRouterOutlet id="main">
-            <Route path="/" exact={true}>
-              <Redirect to="/page/Inbox" />
-            </Route>
-            <Route path="/page/:name" exact={true}>
-              <Page />
-            </Route>
+            <Redirect exact from="/" to="/page/Dashboard" />
+            <Route exact path="/page/Dashboard" component={Dashboard}/>
+            <Route exact path="/page/Check" component={Check}/>
+            <Route exact path="/page/About" component={About}/>
+            <Route exact path="/page/Knowledge" component={Knowledge}/>
           </IonRouterOutlet>
-        </IonSplitPane>
+        {/* </IonSplitPane> */}
       </IonReactRouter>
     </IonApp>
   );
