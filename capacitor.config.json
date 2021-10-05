@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "sispak",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
