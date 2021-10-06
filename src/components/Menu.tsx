@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, podium, podiumOutline, podiumSharp, pulseOutline, pulseSharp, readerOutline, readerSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { podiumOutline, podiumSharp, pulseOutline, pulseSharp, readerOutline, readerSharp } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
