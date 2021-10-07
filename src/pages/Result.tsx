@@ -1,17 +1,16 @@
-import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonText, IonTitle, IonToolbar } from '@ionic/react';
-import { useContext, useState } from 'react';
-import Pilihan from '../components/Pilihan';
-import { PernyataanContext } from '../data/pernyataan-context';
-
-// TODO: Change to use context
-const rule = [
-  ['P1','P2'],
-  ['P3','P4'],
-  ['P1','P3'],
-  ['P2','P4'],
-]
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { useContext } from 'react';
+import { JawabanContext } from '../data/jawaban-context';
+import { RuleContext } from '../data/rule-context';
 
 const Result: React.FC = () => {
+  const jwbData = useContext(JawabanContext)
+  const ruleData = useContext(RuleContext)
+
+  const hitungJawaban = () => {
+    
+  }
+
   return (
     <IonPage>
       <IonHeader>

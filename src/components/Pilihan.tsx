@@ -1,27 +1,31 @@
 import { IonRadioGroup, IonListHeader, IonLabel, IonItem, IonRadio } from "@ionic/react"
-import { useContext } from "react"
+import { useContext, useRef } from "react"
 import { Jawaban, JawabanContext } from "../data/jawaban-context"
 import { PernyataanContext } from "../data/pernyataan-context"
 
 const Pilihan: React.FC<{id: string}> = props => {
     const pytData = useContext(PernyataanContext)
     const jwbData = useContext(JawabanContext)
+    const radioRef = useRef<HTMLIonRadioGroupElement>(null)
 
     const pernyataan = pytData.pernyataan.find(e => e.id === props.id)
     const jawaban = jwbData.jawaban.find(e => e.id === props.id)
 
-    const pilihJawaban = (value: number) => {
+    const pilihJawaban = (e: CustomEvent) => {
+        const value = e.detail.value as number
+        e.preventDefault()
+        if(value == undefined) return 
+        console.log(`yg dipilih: ${value}`)
         let jawaban: Jawaban = {
             id: props.id,
             confidence: value
         }
-        console.info(jawaban)
         jwbData.tambahJawaban(jawaban)
     }
 
     return (
         <>
-            <IonRadioGroup value={jawaban?.confidence} onIonChange={e=> pilihJawaban(e.detail.value)}>
+            <IonRadioGroup key={props.id} ref={radioRef} value={jawaban?.confidence} onIonChange={e => pilihJawaban(e)}>
                 <IonListHeader>
                     <h1 className="ion-text-center">{pernyataan?.pernyataan}</h1>
                 </IonListHeader>

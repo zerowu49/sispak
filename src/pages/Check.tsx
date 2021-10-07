@@ -2,25 +2,49 @@ import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuB
 import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import Pilihan from '../components/Pilihan';
+import { JawabanContext } from '../data/jawaban-context';
 import { PernyataanContext } from '../data/pernyataan-context';
-
-// TODO: Change to use context
-const rule = [
-  ['P1','P2'],
-  ['P3','P4'],
-  ['P1','P3'],
-  ['P2','P4'],
-]
+import { RuleContext } from '../data/rule-context';
 
 const Check: React.FC = () => {
   const [tahap, setTahap] = useState(1)
   const pytData = useContext(PernyataanContext)
+  const jwbData = useContext(JawabanContext)
+  const ruleData = useContext(RuleContext)
   const history = useHistory()
 
   const listPernyataan = pytData.pernyataan.map(pyt => {
-    if(rule[tahap-1].includes(pyt.id))
+    if(ruleData.rule[tahap-1].member.includes(pyt.id))
       return (<Pilihan id={pyt.id}></Pilihan>)
   })
+  console.info(`${jwbData.jawaban}`)
+
+  const fungsiSubmit = () => {
+    /// Cek apakah semua data sudah dimasukkan
+    console.info(`${jwbData.jawaban}`)
+    if (jwbData.jawaban.length < 19){
+      return
+    }
+    
+
+    /// Kalkulasi jawaban
+
+    // Ambil list jawaban
+    jwbData.jawaban.forEach(jawab => {
+      // Temukan nilai confidence
+      const pyt = pytData.pernyataan.find(e => e.id === jawab.id)
+      console.info(`pyt: ${pyt?.value}`)
+
+      // Hitung nilai cf awal
+      const cfAwal = jawab.confidence * (pyt?.value as number)
+      console.info(`cfAwal: ${cfAwal}`)
+
+      // 
+    })
+
+    // Redicect
+    history.push('/page/Result')
+  }
 
   console.info(`tahap: ${tahap}`)
 
@@ -42,7 +66,7 @@ const Check: React.FC = () => {
 
   const tombolSubmit = (
     <>
-      <IonButton onClick={() => history.push('/page/Result')}>
+      <IonButton onClick={fungsiSubmit}>
         Submit
       </IonButton>
     </>

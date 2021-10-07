@@ -5,14 +5,19 @@ export interface Jawaban {
     confidence: number,
 }
 
+export interface ConfidenceSifat{
+    nama: string,
+    confidence: number,
+}
+
 interface JwbContext {
     jawaban: Jawaban[],
+    confidenceSifat: ConfidenceSifat[],
     tambahJawaban: (jawaban: Jawaban) => void,
-    gantiJawaban: (jawaban: Jawaban) => void,
 }
 
 export const JawabanContext = React.createContext<JwbContext>({
     jawaban: [],
+    confidenceSifat: [],
     tambahJawaban: () => {},
-    gantiJawaban: () => {},
 })

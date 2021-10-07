@@ -1,24 +1,28 @@
 import React, { useState } from 'react'
-import { Jawaban, JawabanContext } from './jawaban-context'
+import { ConfidenceSifat, Jawaban, JawabanContext } from './jawaban-context'
 
 const JawabanContextProvider: React.FC = props => {
     const [jawaban, setJawaban] = useState<Jawaban[]>([])
+    const [confidenceSifat, setConfidenceSifat] = useState<ConfidenceSifat[]>([])
 
     const tambahJawaban = (jawab: Jawaban) => {
-        setJawaban((jwbnSekarang) => {
-            return jwbnSekarang.concat(jawab)
+        setJawaban((_) => {
+            const idxJwbn = jawaban.findIndex(e => e.id === jawab.id)
+            if(idxJwbn != -1){
+                jawaban[idxJwbn].confidence = jawab.confidence
+                return jawaban
+            }
+            else{
+                return jawaban.concat(jawab)
+            }
         })
-    }
-
-    const gantiJawaban = (jawaban: Jawaban) => {
-        console.log("ganti jawaban")
     }
 
     return (
         <JawabanContext.Provider value={{
             jawaban,
+            confidenceSifat,
             tambahJawaban,
-            gantiJawaban,
         }}>
             {props.children}
         </JawabanContext.Provider>

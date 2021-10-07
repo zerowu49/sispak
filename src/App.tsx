@@ -28,26 +28,29 @@ import Check from './pages/Check';
 import PernyataanContextProvider from './data/PernyataanContextProvider';
 import JawabanContextProvider from './data/JawabanContextProvider';
 import Result from './pages/Result';
+import RuleContextProvider from './data/RuleContextProvider';
 
 const App: React.FC = () => {
   return (
     <PernyataanContextProvider>
       <JawabanContextProvider>
-        <IonApp>
-          <IonReactRouter>
-            {/* <IonSplitPane contentId="main"> */}
-              <Menu />
-              <IonRouterOutlet id="main">
-                <Redirect exact from="/" to="/page/Dashboard" />
-                <Route exact path="/page/Dashboard" component={Dashboard}/>
-                <Route exact path="/page/Check" component={Check}/>
-                <Route exact path="/page/About" component={About}/>
-                <Route exact path="/page/Knowledge" component={Knowledge}/>
-                <Route exact path="/page/Result" component={Result}/>
-              </IonRouterOutlet>
-            {/* </IonSplitPane> */}
-          </IonReactRouter>
-        </IonApp>
+        <RuleContextProvider>
+          <IonApp>
+            <IonReactRouter>
+              {/* <IonSplitPane contentId="main"> */}
+                <Menu />
+                <IonRouterOutlet id="main">
+                  <Redirect exact from="/" to="/page/Dashboard" />
+                  <Route exact path="/page/Dashboard" component={Dashboard}/>
+                  <Route exact path="/page/Check" component={Check}/>
+                  <Route exact path="/page/About" component={About}/>
+                  <Route exact path="/page/Knowledge" component={Knowledge}/>
+                  <Route exact path="/page/Result" component={Result}/>
+                </IonRouterOutlet>
+              {/* </IonSplitPane> */}
+            </IonReactRouter>
+          </IonApp>
+        </RuleContextProvider>
       </JawabanContextProvider>
     </PernyataanContextProvider>
     
