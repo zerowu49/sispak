@@ -5,7 +5,7 @@ const JawabanContextProvider: React.FC = props => {
     const [jawaban, setJawaban] = useState<Jawaban[]>([])
     const [confidenceSifat, setConfidenceSifat] = useState<ConfidenceSifat[]>([])
 
-    const tambahJawaban = (jawab: Jawaban) => {
+    const updateJawaban = (jawab: Jawaban) => {
         setJawaban((_) => {
             const idxJwbn = jawaban.findIndex(e => e.id === jawab.id)
             if(idxJwbn != -1){
@@ -18,11 +18,29 @@ const JawabanContextProvider: React.FC = props => {
         })
     }
 
+    const updateConfidenceSifat = (confidence: ConfidenceSifat) => {
+        console.log(`Nama: ${confidence.nama}`)
+        console.info(confidenceSifat)
+        setConfidenceSifat((data) => {
+            const idxCfd = data.findIndex(e => e.nama === confidence.nama)
+            if(idxCfd != -1){
+                console.log("sdh ada")
+                data[idxCfd].confidence = confidence.confidence
+                return data
+            }
+            else{
+                console.log("concat")
+                return confidenceSifat.concat(confidence)
+            } 
+        })
+    }
+
     return (
         <JawabanContext.Provider value={{
             jawaban,
             confidenceSifat,
-            tambahJawaban,
+            updateJawaban,
+            updateConfidenceSifat,
         }}>
             {props.children}
         </JawabanContext.Provider>

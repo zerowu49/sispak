@@ -13,11 +13,13 @@ export interface ConfidenceSifat{
 interface JwbContext {
     jawaban: Jawaban[],
     confidenceSifat: ConfidenceSifat[],
-    tambahJawaban: (jawaban: Jawaban) => void,
+    updateJawaban: (jawaban: Jawaban) => void,
+    updateConfidenceSifat: (cfd: ConfidenceSifat) => void,
 }
 
 export const JawabanContext = React.createContext<JwbContext>({
     jawaban: [],
     confidenceSifat: [],
-    tambahJawaban: () => {},
+    updateJawaban: () => {},
+    updateConfidenceSifat: () => {},
 })

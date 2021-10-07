@@ -7,9 +7,7 @@ const Result: React.FC = () => {
   const jwbData = useContext(JawabanContext)
   const ruleData = useContext(RuleContext)
 
-  const hitungJawaban = () => {
-    
-  }
+  console.info(jwbData.confidenceSifat)
 
   return (
     <IonPage>

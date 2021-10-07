@@ -20,7 +20,7 @@ const Pilihan: React.FC<{id: string}> = props => {
             id: props.id,
             confidence: value
         }
-        jwbData.tambahJawaban(jawaban)
+        jwbData.updateJawaban(jawaban)
     }
 
     return (

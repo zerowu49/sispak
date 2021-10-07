@@ -1,8 +1,8 @@
-import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonText, IonTitle, IonToolbar, useIonToast } from '@ionic/react';
 import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import Pilihan from '../components/Pilihan';
-import { JawabanContext } from '../data/jawaban-context';
+import { ConfidenceSifat, JawabanContext } from '../data/jawaban-context';
 import { PernyataanContext } from '../data/pernyataan-context';
 import { RuleContext } from '../data/rule-context';
 
@@ -12,34 +12,62 @@ const Check: React.FC = () => {
   const jwbData = useContext(JawabanContext)
   const ruleData = useContext(RuleContext)
   const history = useHistory()
+  const [presentToast, dismissToast] = useIonToast();
+
+  const durasiToast = 1500
 
   const listPernyataan = pytData.pernyataan.map(pyt => {
     if(ruleData.rule[tahap-1].member.includes(pyt.id))
       return (<Pilihan id={pyt.id}></Pilihan>)
   })
-  console.info(`${jwbData.jawaban}`)
 
   const fungsiSubmit = () => {
     /// Cek apakah semua data sudah dimasukkan
-    console.info(`${jwbData.jawaban}`)
-    if (jwbData.jawaban.length < 19){
+    if (jwbData.jawaban.length < pytData.pernyataan.length){
+      // Menampilkan toast
+      presentToast({
+        buttons: [
+          { text: 'Baik', handler: dismissToast },
+        ],
+        color: 'success',
+        message: `Pernyataannya belum dijawab semua nih. Yuk cek lagi!`,
+        duration: durasiToast,
+      })
       return
     }
     
 
     /// Kalkulasi jawaban
 
-    // Ambil list jawaban
-    jwbData.jawaban.forEach(jawab => {
-      // Temukan nilai confidence
-      const pyt = pytData.pernyataan.find(e => e.id === jawab.id)
-      console.info(`pyt: ${pyt?.value}`)
+    // Ambil list rule
+    ruleData.rule.forEach(rule => {
+      // Ambil list member pernyataan
+      const listPyt = rule.member
 
+      // Ambil jawaban user
+      const jwb = jwbData.jawaban.filter(e => listPyt.includes(e.id))
+
+      // Ambil nilai confidence dalam pernyataan
+      const pyt = pytData.pernyataan.filter(e => listPyt.includes(e.id))
+      
+      // console.warn(pyt)
+      
       // Hitung nilai cf awal
-      const cfAwal = jawab.confidence * (pyt?.value as number)
-      console.info(`cfAwal: ${cfAwal}`)
+      let totalCF = 0
+      for (let index = 0; index < jwb.length; index++) {
+        const cfAwal = jwb[index].confidence * pyt[index].value
+        totalCF += cfAwal
+      }
+      console.info(totalCF)
+      console.info(rule.nama)
 
-      // 
+      // Simpan nilai total CF masing-masing
+      const cfdSifat : ConfidenceSifat = {
+        nama: rule.nama,
+        confidence: totalCF
+      }
+
+      jwbData.updateConfidenceSifat(cfdSifat)
     })
 
     // Redicect
