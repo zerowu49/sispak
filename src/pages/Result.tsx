@@ -1,4 +1,4 @@
-import { IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonItem, IonList, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonItem, IonList, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { useContext, useState } from 'react';
 import { ConfidenceSifat, JawabanContext } from '../data/jawaban-context';
 import { RuleContext } from '../data/rule-context';
@@ -6,6 +6,31 @@ import { RuleContext } from '../data/rule-context';
 const Result: React.FC = () => {
   const jwbData = useContext(JawabanContext)
   const ruleData = useContext(RuleContext)
+
+  if(jwbData.confidenceSifat.length == 0){
+    console.info("kosong")
+    return <IonPage>
+    <IonHeader>
+      <IonToolbar>
+        <IonButtons slot="start">
+          <IonMenuButton />
+        </IonButtons>
+        <IonTitle>Result</IonTitle>
+      </IonToolbar>
+    </IonHeader>
+    <IonContent fullscreen>
+      <IonGrid>
+        <IonRow>
+          <IonCol className="ion-padding ion-text-center">
+            <h2>Sepertinya kamu belum selesai mengisi pernyataannya. 
+              Yuk isi sekarang!</h2>
+              <IonButton routerLink="/page/Check">Isi Pernyataan</IonButton>
+          </IonCol>
+        </IonRow>
+      </IonGrid>
+    </IonContent>
+  </IonPage>
+  }
 
   // Hitung total confidence dari semua kepribadian
   let totalConfidence = 0
