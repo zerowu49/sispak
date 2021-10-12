@@ -30,7 +30,7 @@ const JawabanContextProvider: React.FC = props => {
             }
             else{
                 console.log("concat")
-                return confidenceSifat.concat(confidence)
+                return data.concat(confidence)
             } 
         })
     }

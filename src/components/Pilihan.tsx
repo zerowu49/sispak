@@ -15,7 +15,7 @@ const Pilihan: React.FC<{id: string}> = props => {
         const value = e.detail.value as number
         e.preventDefault()
         if(value == undefined) return 
-        console.log(`yg dipilih: ${value}`)
+        // console.log(`yg dipilih: ${value}`)
         let jawaban: Jawaban = {
             id: props.id,
             confidence: value
