@@ -22,15 +22,16 @@ const Check: React.FC = () => {
   })
 
   const fungsiSubmit = () => {
+    let selisih = pytData.pernyataan.length - jwbData.jawaban.length 
     /// Cek apakah semua data sudah dimasukkan
-    if (jwbData.jawaban.length < pytData.pernyataan.length){
+    if (selisih > 0){
       // Menampilkan toast
       presentToast({
         buttons: [
           { text: 'Baik', handler: dismissToast },
         ],
         color: 'success',
-        message: `Pernyataannya belum dijawab semua nih. Yuk cek lagi!`,
+        message: `${selisih} pernyataan belum dijawab semua nih. Yuk cek lagi!`,
         duration: durasiToast,
       })
       return
@@ -56,7 +57,10 @@ const Check: React.FC = () => {
       let totalCF = 0
       for (let index = 0; index < jwb.length; index++) {
         const cfAwal = jwb[index].confidence * pyt[index].value
-        totalCF += cfAwal
+        if(totalCF == 0)
+          totalCF = cfAwal
+        else
+          totalCF = totalCF + cfAwal*(1-totalCF)
       }
       console.info(totalCF)
       console.info(rule.nama)
@@ -66,7 +70,6 @@ const Check: React.FC = () => {
         nama: rule.nama,
         confidence: totalCF
       }
-
       jwbData.updateConfidenceSifat(cfdSifat)
     })
 
