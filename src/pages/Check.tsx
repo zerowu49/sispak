@@ -133,9 +133,13 @@ const Check: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <IonText id="tahap">Tahap: {tahap}</IonText>
-        <IonGrid className="ion-text-center">
-          {listPernyataan}
-          {tombolNavigasi}
+        <IonGrid className="ion-padding">
+          <IonRow className="ion-justify-content-center">
+            <IonCol size-md="10">
+              {listPernyataan}
+              {tombolNavigasi}
+            </IonCol>
+          </IonRow>
         </IonGrid>
       </IonContent>
     </IonPage>
