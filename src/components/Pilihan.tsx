@@ -2,6 +2,7 @@ import { IonRadioGroup, IonListHeader, IonLabel, IonItem, IonRadio } from "@ioni
 import { useContext, useRef } from "react"
 import { Jawaban, JawabanContext } from "../data/jawaban-context"
 import { PernyataanContext } from "../data/pernyataan-context"
+import './Pilihan.css'
 
 const Pilihan: React.FC<{id: string}> = props => {
     const pytData = useContext(PernyataanContext)
