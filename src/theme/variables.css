@@ -74,6 +74,8 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-color-glass-container: linear-gradient(113deg, rgba(252, 255, 231, 0.34) 7.03%, rgba(245, 245, 245, 0.38) 88.4%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -145,6 +147,8 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
+
+    --ion-color-glass-container: linear-gradient(113deg, rgb(52 52 52 / 34%) 7.03%, rgba(245, 245, 245, 0.38) 88.4%);
   }
 
   /*

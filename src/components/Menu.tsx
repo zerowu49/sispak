@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { podiumOutline, podiumSharp, pulseOutline, pulseSharp, readerOutline, readerSharp } from 'ionicons/icons';
+import { homeOutline, homeSharp, pulseOutline, pulseSharp, readerOutline, readerSharp, peopleOutline, peopleSharp } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
@@ -23,20 +23,26 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: 'Dashboard',
-    url: '/page/Dashboard',
-    iosIcon: podiumOutline,
-    mdIcon: podiumSharp
+    title: 'Home',
+    url: '/home',
+    iosIcon: homeOutline,
+    mdIcon: homeSharp
   },
   {
-    title: 'About',
-    url: '/page/About',
+    title: 'About Us',
+    url: '/aboutus',
+    iosIcon: peopleOutline,
+    mdIcon: peopleSharp
+  },
+  {
+    title: 'Read Me',
+    url: '/readme',
     iosIcon: readerOutline,
     mdIcon: readerSharp
   },
   {
-    title: 'Knowledge Base',
-    url: '/page/Knowledge',
+    title: 'Expert System',
+    url: '/Check',
     iosIcon: pulseOutline,
     mdIcon: pulseSharp
   }

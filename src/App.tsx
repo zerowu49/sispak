@@ -21,9 +21,9 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Dashboard from './pages/Dashboard';
-import About from './pages/About';
-import Knowledge from './pages/Knowledge';
+import Home from './pages/Home/Home';
+import Readme from './pages/Readme/Readme';
+import About from './pages/About/About';
 import Check from './pages/Check';
 import PernyataanContextProvider from './data/PernyataanContextProvider';
 import JawabanContextProvider from './data/JawabanContextProvider';
@@ -40,12 +40,12 @@ const App: React.FC = () => {
               {/* <IonSplitPane contentId="main"> */}
                 <Menu />
                 <IonRouterOutlet id="main">
-                  <Redirect exact from="/" to="/page/Dashboard" />
-                  <Route exact path="/page/Dashboard" component={Dashboard}/>
-                  <Route exact path="/page/Check" component={Check}/>
-                  <Route exact path="/page/About" component={About}/>
-                  <Route exact path="/page/Knowledge" component={Knowledge}/>
-                  <Route exact path="/page/Result" component={Result}/>
+                  <Redirect exact from="/" to="/home" />
+                  <Route exact path="/home" component={Home}/>
+                  <Route exact path="/Check" component={Check}/>
+                  <Route exact path="/aboutus" component={About}/>
+                  <Route exact path="/readme" component={Readme}/>
+                  <Route exact path="/result" component={Result}/>
                 </IonRouterOutlet>
               {/* </IonSplitPane> */}
             </IonReactRouter>
