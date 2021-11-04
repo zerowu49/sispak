@@ -1,0 +1,30 @@
+.readme-container{
+    background: var(--ion-color-glass-container);
+    box-shadow: inset 0px -1px 12px rgba(88, 88, 88, 0.25);
+    border-radius: 10px;
+
+    width: 80%;
+    padding: 2rem 0;
+    margin: 1.5rem auto;
+    max-width: 1140px;
+}
+.readme-grid{
+    text-align: center;
+    margin: auto;
+}
+.readme-content-illustration{
+    padding: 1.5rem;
+}
+.readme-content-title{
+    font-weight: bold;
+    letter-spacing: 0.505em;
+}
+.readme-content-subtitle{
+    text-align: justify;
+    padding: 1.5rem;
+}
+@media (max-width: 540px){
+    .readme-container{
+        max-width: 90%;
+    }
+}
