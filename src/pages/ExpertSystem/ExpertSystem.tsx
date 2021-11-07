@@ -1,12 +1,12 @@
 import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonText, IonTitle, IonToolbar, useIonToast } from '@ionic/react';
 import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
-import Pilihan from '../components/Pilihan';
-import { ConfidenceSifat, JawabanContext } from '../data/jawaban-context';
-import { PernyataanContext } from '../data/pernyataan-context';
-import { RuleContext } from '../data/rule-context';
+import Pilihan from '../../components/Pilihan';
+import { ConfidenceSifat, JawabanContext } from '../../data/jawaban-context';
+import { PernyataanContext } from '../../data/pernyataan-context';
+import { RuleContext } from '../../data/rule-context';
 
-const Check: React.FC = () => {
+const ExpertSystem: React.FC = () => {
   const [tahap, setTahap] = useState(1)
   const pytData = useContext(PernyataanContext)
   const jwbData = useContext(JawabanContext)
@@ -74,7 +74,7 @@ const Check: React.FC = () => {
     })
 
     // Redicect
-    history.push('/page/Result')
+    history.push('/result')
   }
 
   console.info(`tahap: ${tahap}`)
@@ -146,4 +146,4 @@ const Check: React.FC = () => {
   );
 };
 
-export default Check;
+export default ExpertSystem;

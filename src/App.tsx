@@ -24,11 +24,11 @@ import './theme/variables.css';
 import Home from './pages/Home/Home';
 import Readme from './pages/Readme/Readme';
 import About from './pages/About/About';
-import Check from './pages/Check';
 import PernyataanContextProvider from './data/PernyataanContextProvider';
 import JawabanContextProvider from './data/JawabanContextProvider';
-import Result from './pages/Result';
+import Result from './pages/Result/Result';
 import RuleContextProvider from './data/RuleContextProvider';
+import ExpertSystem from './pages/ExpertSystem/ExpertSystem';
 
 const App: React.FC = () => {
   return (
@@ -42,7 +42,7 @@ const App: React.FC = () => {
                 <IonRouterOutlet id="main">
                   <Redirect exact from="/" to="/home" />
                   <Route exact path="/home" component={Home}/>
-                  <Route exact path="/Check" component={Check}/>
+                  <Route exact path="/questions" component={ExpertSystem}/>
                   <Route exact path="/aboutus" component={About}/>
                   <Route exact path="/readme" component={Readme}/>
                   <Route exact path="/result" component={Result}/>

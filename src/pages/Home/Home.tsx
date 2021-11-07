@@ -24,7 +24,7 @@ const Home: React.FC = () => {
                   <div className="welcome-subtitle">
                     Quisque quis nisl vel nibh lobortis maximus sit amet eget tortor. Aenean ex neque, pellentesque id dui non, cursus semper lectus. Curabitur faucibus, erat eget auctor accumsan, dolor dolor blandit urna, ac vulputate magna nulla sit amet nisi.
                   </div>
-                  <IonButton href="/Check" className="welcome-check-button">
+                  <IonButton href="/questions" className="welcome-check-button">
                     Cek Kepribadian Sekarang
                   </IonButton>
                 </div>
