@@ -1,0 +1,30 @@
+.result-title{
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.265em;
+}
+.result-content-container{
+    margin-bottom: 3rem;
+}
+.result-content-name{
+    color: aqua;
+}
+.result-content-text{
+    margin: auto 0;
+
+    text-align: left;
+}
+.result-graph-left{
+    margin: auto 0;
+}
+@media (min-width: 768px){
+    .result-content-text{
+        padding: 1.5rem;
+    }
+}
+@media (max-width: 550px){
+    .result-content-text h3{
+        font-size: 1rem;
+        text-align: center;
+    }
+}

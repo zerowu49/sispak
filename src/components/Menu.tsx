@@ -42,7 +42,7 @@ const appPages: AppPage[] = [
   },
   {
     title: 'Expert System',
-    url: '/Check',
+    url: '/questions',
     iosIcon: pulseOutline,
     mdIcon: pulseSharp
   }

@@ -1,9 +1,11 @@
 import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonItem, IonList, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { useContext, useState, useRef, useEffect } from 'react';
-import { ConfidenceSifat, JawabanContext } from '../data/jawaban-context';
-import { RuleContext } from '../data/rule-context';
+import { ConfidenceSifat, JawabanContext } from '../../data/jawaban-context';
+import { RuleContext } from '../../data/rule-context';
 // import Chart, { ChartData } from 'chart.js/auto';
 import { Doughnut, Pie } from 'react-chartjs-2';
+
+import './Result.css';
 
 // interface Props {
 //   chartData: number[],
@@ -70,7 +72,7 @@ const Result: React.FC = () => {
           <IonCol className="ion-padding ion-text-center">
             <h2>Sepertinya kamu belum selesai mengisi pernyataannya. 
               Yuk isi sekarang!</h2>
-              <IonButton routerLink="/page/Check">Isi Pernyataan</IonButton>
+              <IonButton routerLink="/questions">Isi Pernyataan</IonButton>
           </IonCol>
         </IonRow>
       </IonGrid>
@@ -139,15 +141,57 @@ const Result: React.FC = () => {
     ]
   }
 
+  var description = (
+    <>
+    </>
+  )
+
+  if (sortSifat[0].nama == "Melancholis"){
+    description = (
+      <h3>
+        Melancholis adalah lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia nunc sit amet enim accumsan, id pretium diam egestas. Aenean pretium neque at mauris viverra imperdiet. Phasellus egestas, ex sed ullamcorper imperdiet, leo eros rhoncus tellus, at volutpat leo ex id purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      </h3>
+    )
+  }
+  else if(sortSifat[0].nama == "Choleris"){
+    description = (
+      <h3>
+        Choleris adalah lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia nunc sit amet enim accumsan, id pretium diam egestas. Aenean pretium neque at mauris viverra imperdiet. Phasellus egestas, ex sed ullamcorper imperdiet, leo eros rhoncus tellus, at volutpat leo ex id purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      </h3>
+    )
+  }
+  else if(sortSifat[0].nama == "Phlegmatis"){
+    description = (
+      <h3>
+        Phlegmatis adalah lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia nunc sit amet enim accumsan, id pretium diam egestas. Aenean pretium neque at mauris viverra imperdiet. Phasellus egestas, ex sed ullamcorper imperdiet, leo eros rhoncus tellus, at volutpat leo ex id purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      </h3>
+    )
+  }
+  else {
+    description = (
+      <h3>
+        Sangunis adalah lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia nunc sit amet enim accumsan, id pretium diam egestas. Aenean pretium neque at mauris viverra imperdiet. Phasellus egestas, ex sed ullamcorper imperdiet, leo eros rhoncus tellus, at volutpat leo ex id purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      </h3>
+    )
+  }
+
   const layout = (
     <>
       <IonGrid className="ion-text-center ion-padding">
+        <IonRow className="ion-justify-content-center result-content-container">
+          <IonCol size="10" size-lg="5" className="ion-text-center">
+            <img src={"assets/images/" + sortSifat[0].nama + ".jpg"} alt="" />
+          </IonCol>
+          <IonCol size="10" size-lg="5" className="result-content-text">
+            <h3>Berdasarkan pengecekan kepribadian, ditemukan kepribadian 
+              yang menonjol adalah <b className="result-content-name">{sortSifat[0].nama}</b> dengan tingkat kepercayaan
+              sebesar <b className="result-content-name">{(sortSifat[0].confidence * 100).toFixed(2)}%</b>.
+            </h3>
+            {description}
+          </IonCol>
+        </IonRow>
         <IonRow className="ion-justify-content-center">
-          <IonCol size-md="10" className="ion-text-center">
-            <h2>Berdasarkan pengecekan kepribadian, ditemukan kepribadian 
-              yang menonjol adalah {sortSifat[0].nama} dengan tingkat kepercayaan
-              sebesar {(sortSifat[0].confidence * 100).toFixed(2)}%.
-            </h2>
+          <IonCol size-md="10" size-lg="5" className="ion-text-center result-graph-left">
             <IonList>
               {sortSifat.map(sifat => {
                 return <IonItem className="ion-text-center">
@@ -155,6 +199,8 @@ const Result: React.FC = () => {
                 </IonItem>
               })}
             </IonList>
+          </IonCol>
+          <IonCol size-md="10" size-lg="5" className="ion-text-center">
             {/* <Pie data={data} /> */}
             <Doughnut data={data} />
             {/* <MyChart chartData={tempNumber} chartLabel={tempNama} /> */}
@@ -176,6 +222,9 @@ const Result: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
+        <div className="result-title">
+          <h1>My Results</h1>
+        </div>
         <IonGrid>
           <IonRow>
             <IonCol>
