@@ -29,7 +29,7 @@ const About: React.FC = () => {
                         </div>
                     </div>
                     <div className="about-content-subtitle">
-                    Quisque quis nisl vel nibh lobortis maximus sit amet eget tortor. Aenean ex neque, pellentesque id dui non, cursus semper lectus. Curabitur faucibus, erat eget auctor accumsan, dolor dolor blandit urna, ac vulputate magna nulla sit amet nisi.
+                      Melakukan enhancement antarmuka pengguna sistem pakar menggunakan pendekatan class-based styling.
                     </div>
                 </div>
               </IonCol>

@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonText, IonTitle, IonToolbar, useIonToast } from '@ionic/react';
+import { IonButton, IonButtons, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonMenuButton, IonPage, IonProgressBar, IonRow, IonText, IonTitle, IonToolbar, useIonToast } from '@ionic/react';
 import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import Pilihan from '../../components/Pilihan';
@@ -30,7 +30,7 @@ const ExpertSystem: React.FC = () => {
         buttons: [
           { text: 'Baik', handler: dismissToast },
         ],
-        color: 'success',
+        color: 'warning',
         message: `${selisih} pernyataan belum dijawab semua nih. Yuk cek lagi!`,
         duration: durasiToast,
       })
@@ -80,46 +80,47 @@ const ExpertSystem: React.FC = () => {
   console.info(`tahap: ${tahap}`)
 
   const tombolBalik = (
-    <>
-      <IonButton onClick={() => setTahap(value => value-1)}>
-        Balik
-      </IonButton>
-    </>
+    <IonButton color="danger" onClick={() => setTahap(value => value - 1)}>
+      Previous
+    </IonButton>
   )
 
   const tombolMaju = (
-    <>
-      <IonButton onClick={() => setTahap(value => value+1)}>
-        Selanjutnya
-      </IonButton>
-    </>
+    <IonButton color="success" onClick={() => setTahap(value => value + 1)}>
+      Next
+    </IonButton>
   )
 
   const tombolSubmit = (
-    <>
-      <IonButton onClick={fungsiSubmit}>
-        Submit
-      </IonButton>
-    </>
+    <IonButton color="primary" onClick={fungsiSubmit}>
+      Submit
+    </IonButton>
   )
 
   let tombolNavigasi
 
   if(tahap == 4) tombolNavigasi = (
-    <> 
+    <IonRow>
+      <IonCol className="ion-text-end">
       {tombolBalik}
+      </IonCol>
+      <IonCol className="ion-text-start">
       {tombolSubmit}
-    </>
+      </IonCol>
+    </IonRow>
   )
-  else if (tahap == 1) tombolNavigasi = tombolMaju
+  else if (tahap == 1) tombolNavigasi = (<IonRow><IonCol className="ion-text-center">{tombolMaju}</IonCol></IonRow>)
   else 
     tombolNavigasi = (
-      <> 
+      <IonRow>
+        <IonCol className="ion-text-end">
         {tombolBalik}
+        </IonCol>
+        <IonCol className="ion-text-start">
         {tombolMaju}
-      </>
+        </IonCol>
+      </IonRow>
     )
-  
 
   return (
     <IonPage>
@@ -129,19 +130,22 @@ const ExpertSystem: React.FC = () => {
             <IonMenuButton /> 
           </IonButtons>
           <IonTitle>Cek Kepribadian Diri</IonTitle>
+          <IonText className="ion-margin-end ion-padding-end" slot="end">Tahap {tahap}</IonText>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonText id="tahap">Tahap: {tahap}</IonText>
         <IonGrid className="ion-padding">
           <IonRow className="ion-justify-content-center">
             <IonCol size-md="10">
               {listPernyataan}
-              {tombolNavigasi}
             </IonCol>
           </IonRow>
+          {tombolNavigasi}
         </IonGrid>
       </IonContent>
+      <IonFooter>
+        <IonProgressBar value={(1 / pytData.pernyataan.length) * jwbData.jawaban.length}></IonProgressBar>
+      </IonFooter>
     </IonPage>
   );
 };

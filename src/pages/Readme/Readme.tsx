@@ -43,11 +43,10 @@ const Readme: React.FC = () => {
                   </div>
                   <div className="readme-content-subtitle">
                     Pengetahuan sistem pakar (Knowledge Base) didapat berdasarkan 
-                    data yang telah dihimpun oleh OSPP Four Temperaments Scale 
+                    data yang telah dihimpun oleh &nbsp;
                     <a href="https://openpsychometrics.org/tests/O4TS/development/">
-                    (https://openpsychometrics.org/tests/O4TS/development/).
-                    </a>
-                    <br/>
+                      OSPP Four Temperaments Scale
+                    </a>.
                     Dalam data tersebut, kepribadian manusia dikategorikan 
                     dalam 4 kategori, yakni sanguine, choleric, melancholic,
                     dan phlegmatic. Algoritma yang digunakan untuk menghitung
