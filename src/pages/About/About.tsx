@@ -2,6 +2,7 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 import './About.css'
 import jo from '../../images/jo.jpg'
 import dar from '../../images/dar.jpeg'
+import felix from '../../images/felix.jpeg'
 
 const About: React.FC = () => {
   return (
@@ -53,7 +54,7 @@ const About: React.FC = () => {
               </IonCol>
               <IonCol size="12" sizeMd="4" className="about-grid">
                 <div className="about-content-illustration">
-                  <img src="assets/images/readme-illustration-1.png" alt="" />
+                  <img src={felix} alt="" />
                 </div>
                 <div className="about-content-texts">
                     <div className="about-content-title">
@@ -63,7 +64,7 @@ const About: React.FC = () => {
                         </div>
                     </div>
                     <div className="about-content-subtitle">
-                    Quisque quis nisl vel nibh lobortis maximus sit amet eget tortor. Aenean ex neque, pellentesque id dui non, cursus semper lectus. Curabitur faucibus, erat eget auctor accumsan, dolor dolor blandit urna, ac vulputate magna nulla sit amet nisi.
+                      Membuat design dan tampilan antarmuka dari aplikasi sistem pakar dengan framework Ionic ReactJS.
                     </div>
                 </div>
               </IonCol>

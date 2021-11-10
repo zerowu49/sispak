@@ -7,7 +7,7 @@
     margin-bottom: 3rem;
 }
 .result-content-name{
-    color: blue;
+    color: var(--ion-color-result);
 }
 .result-content-text{
     margin: auto 0;
