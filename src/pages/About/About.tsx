@@ -1,6 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonImg, IonAvatar } from '@ionic/react';
 import './About.css'
 import jo from '../../images/jo.jpg'
+import dar from '../../images/dar.jpeg'
 
 const About: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const About: React.FC = () => {
             <IonRow>
               <IonCol size="12" sizeMd="4" className="about-grid">
                 <div className="about-content-illustration">
-                  <img src="assets/images/readme-illustration-1.png" alt="" />
+                  <img src={dar} alt="" />
                 </div>
                 <div className="about-content-texts">
                     <div className="about-content-title">
