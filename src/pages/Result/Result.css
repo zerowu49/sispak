@@ -1,13 +1,13 @@
 .result-title{
     text-align: center;
     font-weight: bold;
-    letter-spacing: 0.265em;
+    /* letter-spacing: 0.265em; */
 }
 .result-content-container{
     margin-bottom: 3rem;
 }
 .result-content-name{
-    color: aqua;
+    color: blue;
 }
 .result-content-text{
     margin: auto 0;

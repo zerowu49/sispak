@@ -195,17 +195,20 @@ const Result: React.FC = () => {
     <>
       <IonGrid className="ion-text-center ion-padding">
         <IonRow className="ion-justify-content-center result-content-container">
-          <IonCol size="10" size-lg="5" className="ion-text-center">
+          <IonCol size="10" size-lg="5" className="ion-text-center about-content-illustration">
             <img src={"assets/images/" + sortSifat[0].nama + ".jpg"} alt="" />
           </IonCol>
           <IonCol size="10" size-lg="5" className="result-content-text">
-            <h3>Berdasarkan pengecekan kepribadian, ditemukan kepribadian 
-              yang menonjol adalah <b className="result-content-name">{sortSifat[0].nama}</b> dengan tingkat kepercayaan
+            <h3>Berdasarkan pengecekan kepribadian, kepribadian yang menonjol
+              dalam diri kamu adalah <b className="result-content-name">{sortSifat[0].nama}</b> dengan tingkat kepercayaan
               sebesar <b className="result-content-name">{(sortSifat[0].confidence * 100).toFixed(2)}%</b>.
             </h3>
             {description}
           </IonCol>
         </IonRow>
+        <div className="result-title">
+          <h1>Visualisasi persentase jenis kepribadian dalam diri Anda</h1>
+        </div>
         <IonRow className="ion-justify-content-center">
           <IonCol size-md="10" size-lg="5" className="ion-text-center result-graph-left">
             <IonList>
@@ -239,7 +242,7 @@ const Result: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <div className="result-title">
-          <h1>And you are ...</h1>
+          <h1>Hasil Diagnosis Sistem Pakar</h1>
         </div>
         <IonGrid>
           <IonRow>

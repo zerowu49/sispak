@@ -33,7 +33,7 @@ const Pilihan: React.FC<{id: string}> = props => {
 
                 <IonItem>
                     <IonLabel>Sangat tidak setuju</IonLabel>
-                    <IonRadio slot="start" value={0} />
+                    <IonRadio slot="start" value={0.05} />
                 </IonItem>
 
                 <IonItem>
