@@ -25,7 +25,11 @@ const Readme: React.FC = () => {
                     <h1>Terms</h1>
                   </div>
                   <div className="readme-content-subtitle">
-                    Quisque quis nisl vel nibh lobortis maximus sit amet eget tortor. Aenean ex neque, pellentesque id dui non, cursus semper lectus. Curabitur faucibus, erat eget auctor accumsan, dolor dolor blandit urna, ac vulputate magna nulla sit amet nisi.
+                    Penggunaan sistem pakar sebagai deteksi kepribadian seseorang
+                    yang mengandalkan seluruhnya terhadap sistem ini tidak disarankan.
+                    Sistem pakar ini bertujuan untuk mensimulasikan dan membantu
+                    diagnosis oleh pakar psikolog, bukan untuk menggantikan 
+                    peran mereka seluruhnya.
                   </div>
                 </div>
               </IonCol>
@@ -38,7 +42,16 @@ const Readme: React.FC = () => {
                     <h1>Conditions</h1>
                   </div>
                   <div className="readme-content-subtitle">
-                    Quisque quis nisl vel nibh lobortis maximus sit amet eget tortor. Aenean ex neque, pellentesque id dui non, cursus semper lectus. Curabitur faucibus, erat eget auctor accumsan, dolor dolor blandit urna, ac vulputate magna nulla sit amet nisi.
+                    Pengetahuan sistem pakar (Knowledge Base) didapat berdasarkan 
+                    data yang telah dihimpun oleh OSPP Four Temperaments Scale 
+                    <a href="https://openpsychometrics.org/tests/O4TS/development/">
+                    (https://openpsychometrics.org/tests/O4TS/development/).
+                    </a>
+                    <br/>
+                    Dalam data tersebut, kepribadian manusia dikategorikan 
+                    dalam 4 kategori, yakni sanguine, choleric, melancholic,
+                    dan phlegmatic. Algoritma yang digunakan untuk menghitung
+                    persentase keyakinan adalah Algoritma Certainty Factor.
                   </div>
                 </div>
               </IonCol>

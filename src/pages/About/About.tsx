@@ -1,5 +1,6 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol } from '@ionic/react';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonImg, IonAvatar } from '@ionic/react';
 import './About.css'
+import jo from '../../images/jo.jpg'
 
 const About: React.FC = () => {
   return (
@@ -34,17 +35,18 @@ const About: React.FC = () => {
               </IonCol>
               <IonCol size="12" sizeMd="4" className="about-grid about-grid-middle">
                 <div className="about-content-illustration">
-                  <img src="assets/images/readme-illustration-1.png" alt="" />
+                  <img src={jo} alt="" />
                 </div>
                 <div className="about-content-texts">
                     <div className="about-content-title">
                         <h1>Jonathan</h1>
                         <div className="about-content-desc">
-                            Frontend Engineer
+                            BackEnd Engineer
                         </div>
                     </div>
                     <div className="about-content-subtitle">
-                    Quisque quis nisl vel nibh lobortis maximus sit amet eget tortor. Aenean ex neque, pellentesque id dui non, cursus semper lectus. Curabitur faucibus, erat eget auctor accumsan, dolor dolor blandit urna, ac vulputate magna nulla sit amet nisi.
+                      Berkontribusi dalam pembuatan Inference Engine yang digunakan pada 
+                      Sistem Pakar menggunakan metode Certainty Factor.
                     </div>
                 </div>
               </IonCol>

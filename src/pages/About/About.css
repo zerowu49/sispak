@@ -15,6 +15,9 @@
 .about-content-illustration{
     padding: .5rem;
 }
+.about-content-illustration img{
+    border-radius: 50%;
+}
 .about-content-texts{
     padding: 1.5rem;
 }
