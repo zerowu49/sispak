@@ -1,9 +1,12 @@
 import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonItem, IonList, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
-import { useContext, useState, useRef, useEffect } from 'react';
+import { useContext } from 'react';
 import { ConfidenceSifat, JawabanContext } from '../../data/jawaban-context';
 import { RuleContext } from '../../data/rule-context';
-// import Chart, { ChartData } from 'chart.js/auto';
-import { Doughnut, Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
+import Choleris from '../../images/Choleris.jpg'
+import Melancholis from '../../images/Melancholis.jpg'
+import Phlegmatis from '../../images/Phlegmatis.jpg'
+import Sangunis from '../../images/Sangunis.jpg'
 
 import './Result.css';
 
@@ -191,12 +194,31 @@ const Result: React.FC = () => {
     )
   }
 
+  let images
+  switch (sortSifat[0].nama) {
+    case "Choleris":
+      images = Choleris
+      break;
+    case "Melancholis":
+      images = Melancholis
+      break;
+    case "Phlegmatis":
+        images = Phlegmatis
+        break;
+    case "Sangunis":
+      images = Sangunis
+      break;
+    default:
+      images = Choleris
+      break;
+  }
+
   const layout = (
     <>
       <IonGrid className="ion-text-center ion-padding">
         <IonRow className="ion-justify-content-center result-content-container">
           <IonCol size="10" size-lg="5" className="ion-text-center about-content-illustration">
-            <img src={"assets/images/" + sortSifat[0].nama + ".jpg"} alt="" />
+            <img src={images} alt="" />
           </IonCol>
           <IonCol size="10" size-lg="5" className="result-content-text">
             <h3>Berdasarkan pengecekan kepribadian, kepribadian yang menonjol

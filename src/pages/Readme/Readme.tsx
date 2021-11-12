@@ -1,5 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol } from '@ionic/react';
 import './Readme.css'
+import terms from '../../images/readme-illustration-1.png'
+import cons from '../../images/readme-illustration-2.png'
 
 const Readme: React.FC = () => {
   return (
@@ -18,7 +20,7 @@ const Readme: React.FC = () => {
             <IonRow>
               <IonCol size="12" sizeMd="6" className="readme-grid">
                 <div className="readme-content-illustration">
-                  <img src="assets/images/readme-illustration-1.png" alt="" />
+                  <img src={terms} alt="" />
                 </div>
                 <div className="readme-content-texts">
                   <div className="readme-content-title">
@@ -35,7 +37,7 @@ const Readme: React.FC = () => {
               </IonCol>
               <IonCol size="12" sizeMd="6" className="readme-grid">
                 <div className="readme-content-illustration">
-                  <img src="assets/images/readme-illustration-2.png" alt="" />
+                  <img src={cons} alt="" />
                 </div>
                 <div className="readme-content-texts">
                   <div className="readme-content-title">

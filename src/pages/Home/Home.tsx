@@ -1,5 +1,6 @@
 import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import './Home.css'
+import img from '../../images/home-illustration.png'
 
 const Home: React.FC = () => {
   return (
@@ -34,7 +35,7 @@ const Home: React.FC = () => {
               </IonCol>
               <IonCol size="12" sizeMd="6" className="welcome-illustration-grid">
                 <div className="welcome-illustration">
-                  <img src="assets/images/home-illustration.png" alt="" />
+                  <img src={img} alt="" />
                 </div>
               </IonCol>
             </IonRow>
