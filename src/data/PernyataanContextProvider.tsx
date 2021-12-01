@@ -37,12 +37,12 @@ const PernyataanContextProvider: React.FC = props => {
         },
         {
             id: 'P7',
-            pernyataan: 'Orang lain sering menyerang saya',
+            pernyataan: 'Orang lain sering mencemooh/menjelekkan saya',
             value: 0.308,
         },
         {
             id: 'P8',
-            pernyataan: 'Sendirian membuat saya risih',
+            pernyataan: 'Saya takut sendirian',
             value: 0.313,
         },
         {
@@ -58,12 +58,12 @@ const PernyataanContextProvider: React.FC = props => {
         //Phlegmatis
         {
             id: 'P11',
-            pernyataan: 'Emosi saya tidak dapat terkontrol',
+            pernyataan: 'Sulit untuk mengontrol emosi saya',
             value: 0.27,
         },
         {
             id: 'P12',
-            pernyataan: 'Segala sesuatu tidak perlu dipikirkan terlalu ribet',
+            pernyataan: 'Saya selalu mengambil cara yang simpel/mudah',
             value: 0.295,
         },
         {
@@ -73,13 +73,13 @@ const PernyataanContextProvider: React.FC = props => {
         },
         {
             id: 'P14',
-            pernyataan: 'Kehidupan yang baik adalah kehidupan yang damai.',
+            pernyataan: 'Suasana damai adalah suasana yang saya dambakan.',
             value: 0.273,
         },
         // Sangunis
         {
             id: 'P15',
-            pernyataan: 'Teman teman merasa saya membawa kebahagiaan.',
+            pernyataan: 'Teman teman merasa bahagia saat saya ada.',
             value: 0.308,
         },
         {
@@ -94,7 +94,7 @@ const PernyataanContextProvider: React.FC = props => {
         },
         {
             id: 'P18',
-            pernyataan: 'Hal rutin membuat saya bosan.',
+            pernyataan: 'Hal yang berulang membuat saya bosan.',
             value: 0.284,
         },
         {
